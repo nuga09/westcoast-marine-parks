@@ -43,3 +43,4 @@ Then open `http://localhost:3000`.
 - Bookings are enforced as **same-day** (service date = today on the server).
 - Set a real secret in `.env` (`JWT_SECRET`) if you use this beyond local testing.
 
+# westcoast-marine.git-
