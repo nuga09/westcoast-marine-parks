@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum BookingType {
+  LAUNCH
+  RETRIEVAL
+}
+
+enum BookingStatus {
+  PENDING
+  COMPLETED
+  CANCELLED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  phone        String?
+  address      String?
+  passwordHash String
+  role         Role     @default(CUSTOMER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  vessels              Vessel[]
+  dailyMessagesUpdated DailyMessage[] @relation("DailyMessageUpdatedBy")
+  manualBookings       Booking[]      @relation("ManualBookingCreatedBy")
+}
+
+model Vessel {
+  id         String   @id @default(cuid())
+  userId     String
+  boatName   String
+  boatType   String?
+  boatNumber String
+  yardNumber String?  @unique
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  owner    User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookings Booking[]
+
+  @@index([userId])
+  @@index([yardNumber])
+}
+
+model Booking {
+  id              String        @id @default(cuid())
+  vesselId        String
+  type            BookingType
+  serviceDate     DateTime
+  requestedAt     DateTime      @default(now())
+  status          BookingStatus @default(PENDING)
+  completedAt     DateTime?
+  stayingOnMooring Boolean      @default(false)
+  note            String?
+  createdByUserId String?
+
+  vessel      Vessel @relation(fields: [vesselId], references: [id], onDelete: Cascade)
+  createdBy   User?  @relation("ManualBookingCreatedBy", fields: [createdByUserId], references: [id], onDelete: SetNull)
+
+  @@index([type, serviceDate, status, requestedAt])
+  @@index([vesselId, type, serviceDate])
+}
+
+model DailyMessage {
+  id               String   @id @default(cuid())
+  serviceDate      DateTime @unique
+  message          String
+  launchStartTime  String?
+  retrievalStartTime String?
+  updatedAt        DateTime @updatedAt
+  updatedByUserId  String?
+
+  updatedBy User? @relation("DailyMessageUpdatedBy", fields: [updatedByUserId], references: [id], onDelete: SetNull)
+
+  @@index([serviceDate])
+}
+
