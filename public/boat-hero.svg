@@ -1,0 +1,66 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Boat on water illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E7F3FF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F172A" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#0F172A" stop-opacity="0.00"/>
+    </linearGradient>
+    <linearGradient id="hull" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30" y="-30" width="1260" height="860" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0B1220" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1200" height="800" rx="48" fill="url(#sky)"/>
+
+  <!-- sun -->
+  <circle cx="910" cy="170" r="64" fill="#FDE68A" fill-opacity="0.85"/>
+  <circle cx="910" cy="170" r="96" fill="#FDE68A" fill-opacity="0.25"/>
+
+  <!-- distant clouds -->
+  <g opacity="0.55">
+    <path d="M168 214c0-20 16-36 36-36 10 0 19 4 26 10 4-16 18-28 35-28 21 0 38 17 38 38v2h10c17 0 31 14 31 31s-14 31-31 31H190c-18 0-33-15-33-33 0-17 12-31 28-33Z" fill="#FFFFFF"/>
+    <path d="M640 254c0-16 13-29 29-29 8 0 16 3 21 8 4-13 16-22 30-22 18 0 32 14 32 32v2h8c14 0 26 12 26 26s-12 26-26 26H660c-15 0-28-13-28-28 0-14 10-26 23-27Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- water -->
+  <path d="M0 470c140 44 260 18 380-8 150-33 260-58 410 0 140 54 250 58 410 8V800H0V470Z" fill="url(#water)"/>
+
+  <!-- waves -->
+  <g opacity="0.55" stroke="#0B1220" stroke-opacity="0.25" stroke-width="6" stroke-linecap="round">
+    <path d="M120 560c44 18 88 18 132 0 44-18 88-18 132 0 44 18 88 18 132 0"/>
+    <path d="M220 640c44 18 88 18 132 0 44-18 88-18 132 0 44 18 88 18 132 0"/>
+    <path d="M640 600c52 18 104 18 156 0 52-18 104-18 156 0 52 18 104 18 156 0"/>
+  </g>
+
+  <!-- boat -->
+  <g filter="url(#softShadow)">
+    <!-- mast -->
+    <rect x="520" y="250" width="10" height="210" rx="5" fill="#0B1220" opacity="0.9"/>
+    <!-- sail -->
+    <path d="M532 270c120 26 208 108 228 206H532V270Z" fill="#FFFFFF"/>
+    <path d="M532 270c120 26 208 108 228 206" stroke="#0B1220" stroke-opacity="0.12" stroke-width="6" stroke-linecap="round"/>
+    <!-- accent stripe -->
+    <path d="M548 352c70 18 128 62 166 126" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+    <!-- cabin -->
+    <path d="M430 418c0-34 28-62 62-62h82c22 0 40 18 40 40v22H430Z" fill="#FFFFFF"/>
+    <path d="M446 402c0-12 10-22 22-22h44c12 0 22 10 22 22v16h-88v-16Z" fill="#E5E7EB"/>
+    <!-- hull -->
+    <path d="M312 474h620c0 0-42 88-132 108-98 22-188 22-276 0-90-22-212-108-212-108Z" fill="url(#hull)"/>
+    <!-- hull highlight -->
+    <path d="M372 494h520c0 0-34 62-110 78-82 18-160 18-234 0-76-18-176-78-176-78Z" fill="#111827" opacity="0.55"/>
+    <!-- waterline -->
+    <path d="M300 474h648" stroke="#38BDF8" stroke-opacity="0.45" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>

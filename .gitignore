@@ -17,6 +17,10 @@
 /.next/
 /out/
 
+# prisma (local dev database)
+/prisma/*.db
+/prisma/*.db-journal
+
 # production
 /build
 
