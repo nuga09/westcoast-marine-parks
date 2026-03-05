@@ -3,9 +3,13 @@ import { startOfTodayLocal } from "@/lib/dates";
 
 export default function Home() {
   const serviceDate = startOfTodayLocal();
-  const dailyMessagePromise = db.dailyMessage.findUnique({
+  const dailyMessagePromise = db.dailyMessage.findFirst({
     where: { serviceDate },
-    select: { message: true, launchStartTime: true, retrievalStartTime: true, updatedAt: true },
+    select: { 
+	message: true, 
+    	launchStartTime: true, 
+    	retrievalStartTime: true, 
+	updatedAt: true }
   });
 
   return (
