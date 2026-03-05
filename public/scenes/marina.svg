@@ -1,0 +1,57 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Boats in a marina">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E7F3FF"/>
+      <stop offset="0.65" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#0B1220" stop-opacity="0.16"/>
+    </linearGradient>
+    <linearGradient id="hull" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0B1220" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#111827" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#sky)"/>
+
+  <!-- distant hills -->
+  <path d="M0 170c120-40 240-38 360 0 120 38 240 42 360 0 120-42 240-40 360 0v40H0v-40Z" fill="#0B1220" fill-opacity="0.06"/>
+
+  <!-- water -->
+  <path d="M0 190c150 52 310 14 450 0 180-18 320-6 450 50 110 48 200 54 300 26V360H0V190Z" fill="url(#water)"/>
+
+  <!-- boats -->
+  <g opacity="0.92">
+    <g>
+      <path d="M250 214h220c0 0-22 56-70 70-54 16-104 16-152 0-50-16 2-70 2-70Z" fill="url(#hull)"/>
+      <path d="M286 210c0-20 16-36 36-36h66c18 0 32 14 32 32v4H286Z" fill="#FFFFFF"/>
+      <path d="M232 214h258" stroke="#38BDF8" stroke-opacity="0.45" stroke-width="8" stroke-linecap="round"/>
+      <path d="M370 148h10v64h-10v-64Z" fill="#0B1220" fill-opacity="0.85"/>
+      <path d="M382 158c46 12 80 40 90 70h-90v-70Z" fill="#FFFFFF"/>
+      <path d="M396 198c24 10 44 26 58 46" stroke="#6366F1" stroke-opacity="0.75" stroke-width="8" stroke-linecap="round"/>
+    </g>
+
+    <g opacity="0.9">
+      <path d="M620 230h190c0 0-18 44-58 56-46 12-88 12-128 0-42-12-4-56-4-56Z" fill="url(#hull)"/>
+      <path d="M650 226c0-16 12-28 28-28h52c14 0 24 10 24 24v4H650Z" fill="#FFFFFF"/>
+      <path d="M604 230h222" stroke="#38BDF8" stroke-opacity="0.45" stroke-width="7" stroke-linecap="round"/>
+      <path d="M728 178h9v48h-9v-48Z" fill="#0B1220" fill-opacity="0.85"/>
+      <path d="M739 186c34 9 60 30 68 52h-68v-52Z" fill="#FFFFFF"/>
+    </g>
+
+    <g opacity="0.55">
+      <path d="M950 178h140c0 0-12 30-42 38-34 10-66 10-96 0-30-10-2-38-2-38Z" fill="#0B1220"/>
+      <path d="M980 176c0-12 10-22 22-22h38c12 0 22 10 22 22v2h-82v-2Z" fill="#FFFFFF"/>
+    </g>
+  </g>
+
+  <!-- ripples -->
+  <g opacity="0.55" stroke="#0B1220" stroke-opacity="0.18" stroke-width="6" stroke-linecap="round">
+    <path d="M120 302c52 18 104 18 156 0 52-18 104-18 156 0 52 18 104 18 156 0"/>
+    <path d="M640 318c46 16 92 16 138 0 46-16 92-16 138 0 46 16 92 16 138 0"/>
+  </g>
+</svg>
+

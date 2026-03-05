@@ -1,0 +1,43 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sunrise over the ocean">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD6A5"/>
+      <stop offset="0.45" stop-color="#FF9BD4" stop-opacity="0.65"/>
+      <stop offset="1" stop-color="#8BD3FF"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0EA5E9" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#0B1220" stop-opacity="0.25"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(880 160) rotate(90) scale(150 260)">
+      <stop offset="0" stop-color="#FFF1B8" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#FFF1B8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#sky)"/>
+
+  <!-- sun + glow -->
+  <circle cx="880" cy="160" r="84" fill="#FFF1B8" fill-opacity="0.9"/>
+  <circle cx="880" cy="160" r="150" fill="url(#sunGlow)"/>
+
+  <!-- horizon haze -->
+  <rect y="190" width="1200" height="60" fill="#FFFFFF" fill-opacity="0.18"/>
+
+  <!-- ocean -->
+  <path d="M0 210C140 252 290 196 420 190C560 184 650 252 780 252C940 252 1030 206 1200 178V360H0V210Z" fill="url(#sea)"/>
+  <path d="M0 235C160 280 300 236 430 224C560 212 660 280 790 280C960 280 1040 238 1200 212V360H0V235Z" fill="#0EA5E9" fill-opacity="0.14"/>
+
+  <!-- waves -->
+  <g opacity="0.55" stroke="#0B1220" stroke-opacity="0.22" stroke-width="6" stroke-linecap="round">
+    <path d="M80 262c46 18 92 18 138 0 46-18 92-18 138 0 46 18 92 18 138 0"/>
+    <path d="M560 292c56 18 112 18 168 0 56-18 112-18 168 0 56 18 112 18 168 0"/>
+  </g>
+
+  <!-- distant boat silhouette -->
+  <g opacity="0.42" fill="#0B1220">
+    <path d="M210 210h46l10 16h-78l22-16Z"/>
+    <path d="M236 168l-10 42h44c-8-18-18-32-34-42Z"/>
+  </g>
+</svg>
+

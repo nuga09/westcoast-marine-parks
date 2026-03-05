@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -30,61 +31,68 @@ export default function RegisterPage() {
   ]);
 
   return (
-    <div className="mx-auto max-w-2xl">
-      <Card>
-        <CardHeader>
-          <CardTitle>Create account</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form
-            className="space-y-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setError(null);
-              startTransition(async () => {
-                const res = await fetch("/api/auth/register", {
-                  method: "POST",
-                  headers: { "content-type": "application/json" },
-                  body: JSON.stringify({ name, phone, address, email, password, vessels }),
+    <div className="mx-auto max-w-5xl">
+      <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
+        <Card>
+          <CardHeader>
+            <CardTitle>Create account</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form
+              className="space-y-6"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setError(null);
+                startTransition(async () => {
+                  const res = await fetch("/api/auth/register", {
+                    method: "POST",
+                    headers: { "content-type": "application/json" },
+                    body: JSON.stringify({ name, phone, address, email, password, vessels }),
+                  });
+                  if (!res.ok) {
+                    const data = (await res.json().catch(() => null)) as { error?: string } | null;
+                    setError(data?.error ?? "Registration failed");
+                    return;
+                  }
+                  router.push("/dashboard");
+                  router.refresh();
                 });
-                if (!res.ok) {
-                  const data = (await res.json().catch(() => null)) as { error?: string } | null;
-                  setError(data?.error ?? "Registration failed");
-                  return;
-                }
-                router.push("/dashboard");
-                router.refresh();
-              });
-            }}
-          >
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="name">Name</Label>
-                <Input id="name" value={name} onChange={(e) => setName(e.target.value)} />
+              }}
+            >
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="space-y-2 sm:col-span-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone</Label>
+                  <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2 sm:col-span-2">
+                  <Label htmlFor="address">Address</Label>
+                  <Input id="address" value={address} onChange={(e) => setAddress(e.target.value)} />
+                </div>
+                <div className="space-y-2 sm:col-span-2">
+                  <Label htmlFor="password">Password</Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    autoComplete="new-password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-              </div>
-              <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="address">Address</Label>
-                <Input id="address" value={address} onChange={(e) => setAddress(e.target.value)} />
-              </div>
-              <div className="space-y-2 sm:col-span-2">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  autoComplete="new-password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-            </div>
 
             <div className="space-y-3">
               <div className="flex items-center justify-between">
@@ -173,8 +181,27 @@ export default function RegisterPage() {
               </div>
             </div>
           </form>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+
+        <aside className="relative hidden overflow-hidden rounded-2xl border border-zinc-200 bg-white lg:block">
+          <Image
+            src="/scenes/dock.svg"
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(max-width: 1024px) 0px, 560px"
+            className="object-cover"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-black/0" />
+          <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/40 bg-white/60 p-4 backdrop-blur">
+            <div className="text-sm font-semibold text-zinc-900">Add your boats once</div>
+            <div className="mt-1 text-xs text-zinc-700">
+              Include your vessel details so yard staff can match you quickly at the dock. Yard # can be left blank.
+            </div>
+          </div>
+        </aside>
+      </div>
     </div>
   );
 }

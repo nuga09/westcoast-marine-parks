@@ -1,0 +1,22 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ocean waves">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E7F3FF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#38BDF8" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#0B1220" stop-opacity="0.10"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="360" fill="url(#bg)"/>
+  <path d="M0 180c160 60 300 20 440 0 190-28 330-20 460 52 120 66 210 70 300 38V360H0V180Z" fill="url(#sea)"/>
+
+  <g opacity="0.7" stroke="#0B1220" stroke-opacity="0.20" stroke-width="7" stroke-linecap="round">
+    <path d="M70 230c54 20 108 20 162 0 54-20 108-20 162 0 54 20 108 20 162 0"/>
+    <path d="M520 270c62 20 124 20 186 0 62-20 124-20 186 0 62 20 124 20 186 0"/>
+    <path d="M160 310c52 18 104 18 156 0 52-18 104-18 156 0 52 18 104 18 156 0"/>
+  </g>
+</svg>
+

@@ -26,6 +26,10 @@ npm run dev:setup
 
 Then open `http://localhost:3000`.
 
+### Environment (`.env`)
+- If you don't have a `.env` yet, `npm run dev:setup` will generate one for you.
+- For local SQLite, `DATABASE_URL` should be `file:./dev.db` (resolved relative to `prisma/schema.prisma`).
+
 ### Seed accounts
 - **Admin**: `admin@westcoastmarine.local` / `Admin123!`
 - **Customer**: `customer@westcoastmarine.local` / `Customer123!`

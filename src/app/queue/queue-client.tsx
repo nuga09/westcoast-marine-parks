@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getSocket } from "@/lib/socketClient";
@@ -99,9 +100,20 @@ export function QueueClient({ type, isAdmin }: { type: QueueType; isAdmin: boole
         </Button>
       </div>
 
-      <div className="rounded-2xl border border-zinc-200 bg-white p-5">
-        <div className="text-xs font-semibold uppercase tracking-wide text-zinc-500">Daily message</div>
-        <div className="mt-2 text-sm text-zinc-900">{data?.dailyMessage?.message ?? "—"}</div>
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-5">
+        <Image
+          src="/scenes/waves.svg"
+          alt=""
+          aria-hidden="true"
+          fill
+          sizes="(max-width: 1024px) 100vw, 1024px"
+          className="object-cover opacity-45"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-white/75 via-white/60 to-white/40" />
+        <div className="relative">
+          <div className="text-xs font-semibold uppercase tracking-wide text-zinc-500">Daily message</div>
+          <div className="mt-2 text-sm text-zinc-900">{data?.dailyMessage?.message ?? "—"}</div>
+        </div>
       </div>
 
       {error ? <div className="rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</div> : null}

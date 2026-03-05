@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { BookingStatus, BookingType } from "@prisma/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -46,12 +47,24 @@ export function DashboardClient({ userName, vessels }: { userName: string; vesse
 
   return (
     <div className="space-y-6">
-      <div className="rounded-2xl border border-zinc-200 bg-white p-6">
+      <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-6">
+        <Image
+          src="/scenes/marina.svg"
+          alt=""
+          aria-hidden="true"
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 1024px"
+          className="object-cover opacity-55"
+        />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-white/75 via-white/60 to-white/40" />
+        <div className="relative">
         <h1 className="text-2xl font-semibold tracking-tight">Welcome, {userName}</h1>
         <p className="mt-2 text-sm text-zinc-600">
           Select a vessel and book a same-day launch or retrieval. After booking, you’ll see the live queue and your
           position.
         </p>
+        </div>
       </div>
 
       {error ? <div className="rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</div> : null}

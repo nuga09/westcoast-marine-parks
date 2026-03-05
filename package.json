@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "setup": "npm run db:migrate && npm run db:seed",
+    "setup:env": "tsx scripts/setup-env.ts",
+    "setup": "npm run setup:env && npm run db:migrate && npm run db:seed",
     "dev:setup": "npm run setup && npm run dev",
-    "db:migrate": "prisma migrate dev",
+    "db:migrate": "prisma migrate dev --skip-seed",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio"
   },
