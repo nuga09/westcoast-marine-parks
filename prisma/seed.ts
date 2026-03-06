@@ -1,7 +1,10 @@
 import { PrismaClient, BookingStatus, BookingType, Role } from "@prisma/client";
+import { PrismaPg } from "@prisma/adapter-pg";
+import pg from "pg";
 import bcrypt from "bcryptjs";
 
-const db = new PrismaClient();
+const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+const db = new PrismaClient({ adapter: new PrismaPg(pool, { schema: 'app' }) });
 
 function startOfTodayUtc() {
   const now = new Date();

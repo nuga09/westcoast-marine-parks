@@ -4,6 +4,12 @@ import * as React from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/cn";
+import dynamic from "next/dynamic";
+
+const WaterScene = dynamic(
+  () => import("./water-scene").then((m) => m.WaterScene),
+  { ssr: false, loading: () => <div className="h-full w-full bg-gradient-to-b from-sky-300 to-sky-500 animate-pulse rounded-3xl" /> }
+);
 
 type SceneConfig = {
   src: string;
@@ -14,15 +20,6 @@ type SceneConfig = {
 
 function pickScene(pathname: string | null): SceneConfig {
   const p = pathname ?? "/";
-
-  if (p === "/") {
-    return {
-      src: "/scenes/sunrise-ocean.svg",
-      heightClass: "h-48 sm:h-60",
-      overlayClass: "from-black/25 via-black/10 to-black/0",
-      objectPositionClass: "object-[center_58%]",
-    };
-  }
 
   if (p === "/login" || p === "/register") {
     return {
@@ -70,6 +67,22 @@ function pickScene(pathname: string | null): SceneConfig {
 
 export function SceneStrip() {
   const pathname = usePathname();
+
+  // Homepage: full 3D water scene with boats
+  if (pathname === "/") {
+    return (
+      <div className="relative overflow-hidden rounded-3xl border border-sky-200 h-64 sm:h-80">
+        <WaterScene className="absolute inset-0 h-full w-full" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute bottom-4 left-5 pointer-events-none">
+          <p className="text-xs font-semibold uppercase tracking-widest text-white/70 drop-shadow">
+            Westcoast Marine · Park &amp; Launch
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const scene = React.useMemo(() => pickScene(pathname), [pathname]);
 
   return (
@@ -79,7 +92,6 @@ export function SceneStrip() {
         alt=""
         aria-hidden="true"
         fill
-        priority={pathname === "/"}
         sizes="(max-width: 1024px) 100vw, 1024px"
         className={cn("select-none object-cover", scene.objectPositionClass)}
       />
@@ -89,4 +101,3 @@ export function SceneStrip() {
     </div>
   );
 }
-
