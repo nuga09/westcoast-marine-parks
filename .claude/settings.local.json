@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && node -e \"\"require\\(\\\\\"\"prisma/config\\\\\"\"\\)\"\" 2>&1 | head -5')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && npx prisma migrate deploy 2>&1')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && DATABASE_URL=\"\"postgresql://myuser:mypassword@localhost:5432/westcoast_marine\"\" npx prisma migrate deploy 2>&1')",
+      "Bash(wsl -e bash -c 'sudo -u postgres psql -c \"\"GRANT ALL ON SCHEMA public TO myuser; ALTER USER myuser CREATEDB;\"\" 2>&1')",
+      "Bash(wsl -e bash -c 'PGPASSWORD=mypassword psql -h localhost -U myuser -d westcoast_marine -c \"\"CREATE SCHEMA IF NOT EXISTS app; SET search_path TO app;\"\" 2>&1')",
+      "Bash(wsl -e bash -c 'cat ~/westcoast-marine-parks/.env')",
+      "Bash(wsl -e bash -c 'sed -i \"\"s|postgresql://myuser:mypassword@localhost:5432/westcoast_marine|postgresql://myuser:mypassword@localhost:5432/westcoast_marine?schema=app|\"\" ~/westcoast-marine-parks/.env && cat ~/westcoast-marine-parks/.env')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && DATABASE_URL=\"\"postgresql://myuser:mypassword@localhost:5432/westcoast_marine?schema=app\"\" npx prisma db seed 2>&1')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && DATABASE_URL=\"\"postgresql://myuser:mypassword@localhost:5432/westcoast_marine\"\" npx prisma db seed 2>&1')",
+      "Bash(wsl -e bash -c 'PGPASSWORD=mypassword psql -h localhost -U myuser -d westcoast_marine -c \"\"\\\\dt app.*\"\" 2>&1')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && npm install --save-dev @types/pg 2>&1')",
+      "Bash(wsl -e bash -c 'ls ~/westcoast-marine-parks/images/ 2>/dev/null || ls ~/westcoast-marine-parks/public/ 2>/dev/null')",
+      "Bash(wsl -e bash -c 'ls ~/westcoast-marine-parks/public/ && ls ~/westcoast-marine-parks/src/')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && npm install @react-three/fiber @react-three/drei three && npm install --save-dev @types/three 2>&1')",
+      "Bash(wsl -e bash -c 'mkdir -p ~/westcoast-marine-parks/public/models && cp ~/westcoast-marine-parks/images/*.glb ~/westcoast-marine-parks/public/models/ && ls ~/westcoast-marine-parks/public/models/')",
+      "Bash(wsl -e bash -c 'cp ~/westcoast-marine-parks/src/middleware.ts ~/westcoast-marine-parks/src/proxy.ts && rm ~/westcoast-marine-parks/src/middleware.ts && ls ~/westcoast-marine-parks/src/')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && DATABASE_URL=\"\"postgresql://myuser:mypassword@localhost:5432/westcoast_marine\"\" tsx prisma/seed.ts 2>&1')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && node -e \"\"require\\(\\\\\"\"@react-three/fiber\\\\\"\"\\)\"\" 2>&1 | head -3')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && npm install --save-dev @netlify/plugin-nextjs 2>&1')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && DATABASE_URL=\"\"postgresql://myuser:mypassword@localhost:5432/westcoast_marine\"\" npx tsx prisma/seed.ts 2>&1')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && PGOPTIONS=\"\"-c search_path=app\"\" DATABASE_URL=\"\"postgresql://myuser:mypassword@localhost:5432/westcoast_marine\"\" npx tsx prisma/seed.ts 2>&1')",
+      "Bash(wsl -e bash -c 'grep -r \"\"schema\\\\|searchPath\\\\|search_path\"\" ~/westcoast-marine-parks/node_modules/@prisma/adapter-pg/dist/index.js | head -20')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && DATABASE_URL=\"\"postgresql://myuser:mypassword@localhost:5432/westcoast_marine\"\" node -e \"\"require\\(\\\\\"\"@prisma/adapter-pg\\\\\"\"\\)\"\" && npx prisma generate 2>&1 | tail -5')"
+    ]
+  }
+}

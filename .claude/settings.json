@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wsl -e bash -c 'cd ~/westcoast-marine-parks && git remote -v 2>&1')",
+      "Bash(wsl -e bash -c 'export PATH=/home/nugad/.nvm/versions/node/v20.20.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin && cd ~/westcoast-marine-parks && DATABASE_URL=\"\"postgresql://myuser:mypassword@localhost:5432/westcoast_marine\"\" npm run dev 2>&1')",
+      "Bash(wsl -e bash -c 'cd ~/westcoast-marine-parks && git add -A && git status 2>&1')",
+      "Bash(wsl -e bash -c 'cd ~/westcoast-marine-parks && git restore --staged .claude/ src/lib/db1.ts 2>&1')"
+    ]
+  }
+}
